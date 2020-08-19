@@ -1,0 +1,3159 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2015 3:50:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="335DPC597"
+  DTS:CreatorName="OWS\tsyed"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{489D9771-9EC4-4FDF-8290-2D3D7A396448}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="10"
+  DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="280"
+  DTS:VersionGUID="{BB05FD70-4EF9-464A-BE01-4B6EAD9660CA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4AAE67AC-E6D4-48C0-A235-CB2981F0CFA4}"
+      DTS:ObjectName="ES11VdSINFSQL01.Supertable.lcgmsappuser">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ES11VdSINFSQL01SupertableLcgmsappuser_ConnectionString1]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOEL2pU9uLEK9DaK/PHIjFgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB6NFdQv2Ab04EXM8YgTX8GAAAAAASAAACgAAAAEAAAAK8hGgzsYS8im/aYvtD71WgQAAAAGtLQ4GhSJECxDBkVvgEnhRQAAADK7WREAprmJQeYqq/p/Lci0rDBzg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{546AB1C9-C656-4E35-B680-66040D4FB3F3}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ExcelConnectionManager]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DelayValidation="True"
+      DTS:Description="SMTP Connection Manager"
+      DTS:DTSID="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::SMTPConnectionManager_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D8FA4120-C0E0-420D-8D4D-62A718599651}"
+      DTS:ObjectName="DestinationFile">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE.xls</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E7E89E8B-6985-450B-B291-54300931A88B}"
+      DTS:ObjectName="ES11vDSINFSQL01SupertableLcgmsappuser_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=ES11vDSINFSQL01;User ID=lcgmsappuser;Password=welcome;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3F5D6100-0797-4797-86E6-2B545BBA4938}"
+      DTS:ObjectName="ES11VdSINFSQL01SupertableLcgmsappuser_ConnectionString1">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=ES11VdSINFSQL01;User ID=lcgmsappuser;Password=welcome;Initial Catalog=Supertable;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E45C1878-DEEA-4356-9B2D-B807D88ED026}"
+      DTS:ObjectName="ExcelConnectionManager">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE.xls;Extended Properties="EXCEL 8.0;HDR=YES";</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0861F3AA-FE36-4C28-8AD3-C4914D91A136}"
+      DTS:ObjectName="FinalStepSendMailTaskBFSCAdminDistrictIssuesReport_CCLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tahirsyed06@gmail.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5197DA91-8AD2-4B96-9906-7AD0807BC629}"
+      DTS:ObjectName="FinalStepSendMailTaskBFSCAdminDistrictIssuesReport_ToLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tsyed@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BBC648EF-C634-422D-92FA-6E8B27DBDBBA}"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabasePW">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">welcome</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E5AD5C73-0C60-4F79-86AC-A012EDE3F28D}"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ES11VdSINFSQL01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{339DA1D3-A20E-488B-8502-AA8D414825BB}"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseUID">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">lcgmsappuser</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EDAB6E18-0ABB-478F-A20C-EFC68948A2DC}"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryA">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SELECT DISTINCT Code, Code_Name, First_Name, Last_Name, Display_Name, Locations_Counter FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table WHERE Sheet = 'A' ORDER By Code, Last_Name;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{305369AB-CB55-4F39-8C93-1C03F891D8F7}"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryB">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SELECT DISTINCT Code, Code_Name, First_Name, Last_Name, Display_Name, Locations_Counter FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table WHERE Sheet = 'B' ORDER By Code, Last_Name;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B3C7558F-CB92-4458-82FE-408E4FC22302}"
+      DTS:ObjectName="SMTPConnectionManager_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{668B04B7-BB64-4470-B131-D1C7414D74B9}"
+      DTS:ObjectName="SourceFile">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE_Template.xls</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{608A5108-AB4E-4640-81CF-9875F15B8BB5}"
+      DTS:ObjectName="Step07SendMailTaskNoDataFound_CCLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tahirsyed06@gmail.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C1E15C72-F846-4452-8C66-DACF1DBC8297}"
+      DTS:ObjectName="Step07SendMailTaskNoDataFound_ToLine">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">tsyed@schools.nyc.gov</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E729C60-9B35-4FE8-8820-E8A5689FBAC9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_DestinationFile]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_DestinationFile">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{64B20AC2-C276-4F44-915B-075B1240D8AE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SourceFile]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE_Template.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C197E1A3-C4E6-47CF-AD7E-1AA704F5B89B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabasePW]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabasePW">
+      <DTS:VariableValue
+        DTS:DataType="8">welcome</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BC68BD56-8D46-4A71-85EC-1176368E5B20}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer">
+      <DTS:VariableValue
+        DTS:DataType="8">ES11vDSINFSQL01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EC7E95F2-CD6A-440E-AE1B-FE5D82301C97}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseUID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseUID">
+      <DTS:VariableValue
+        DTS:DataType="8">lcgmsappuser</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7F3CF092-A55A-44A4-83F6-0C0E218EED65}"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_Today]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_Today">
+      <DTS:VariableValue
+        DTS:DataType="7">12/10/2015 11:48:08 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F76CECB-17F2-4904-BEBF-5F3DB56E3246}"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B124F6E0-F36A-4E8A-A490-C944D4BB29EF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryA]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryA">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT DISTINCT Code, Code_Name, First_Name, Last_Name, Display_Name, Locations_Counter  FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table WHERE Sheet = 'A' ORDER BY Code, Last_Name;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2AEF3D09-673F-4E0C-A1A0-43572B5FF870}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryB]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryB">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT DISTINCT Code,  Code_Name,  First_Name,  Last_Name,  Display_Name,  Locations_Counter FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table WHERE Sheet = 'B' ORDER BY Code, Last_Name</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4BB02665-FB9A-4280-837B-0C038EA1C3E5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SMTPConnectionManager_ConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">SmtpServer=NYCBOEMAILSERVER1;UseWindowsAuthentication=False;EnableSsl=False;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Final Step - Send Mail Task - BFSC &amp; Admin District Issues Report"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Final Step - Send Mail Task - BFSC &amp; Admin District Issues Report"
+      DTS:DTSID="{3FD5E6D2-C124-47D4-B791-C2BDC66C5C72}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Final Step - Send Mail Task - BFSC &amp; Admin District Issues Report"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::FinalStepSendMailTaskBFSCAdminDistrictIssuesReport_CCLine]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[$Package::DestinationFile]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"BFSC &amp; Admin District Issues Report (Server: " + @[$Package::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer] + " as of " +  (DT_WSTR,30)( @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_Today]) + ")"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::FinalStepSendMailTaskBFSCAdminDistrictIssuesReport_ToLine]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:CC="tahirsyed06@gmail.com"
+          SendMailTask:Subject="BFSC &amp; Admin District Issues Report (Server: ES11VdSINFSQL01 as of 12/10/2015 11:48:08 AM)"
+          SendMailTask:MessageSource="&#xA;&#xA;      Please review the attached Excel spreadsheet.&#xA;&#xA;      Tab 1:  Identifies currently open Borough Field Support Centers (BFSC) which, according to LCGMS, have no BFSC leader assigned. The information is displayed in BFSC sequence.&#xA;&#xA;      Tab 2:  Identifies currently open Administrative Districts which, according to LCGMS, have no Superintendent assigned. The information is displayed in SST sequence.&#xA;&#xA;&#xA;      This spreadsheet is produced daily. You will receive this email notice in the morning on a daily basis throughout the school year ONLY if there are reported items in one or more tabs for the day. If there is nothing to report, you will not receive the report for the day.&#xA;&#xA;      Since this information is initially sourced from Galaxy, please review the spreadsheet and provide Galaxy with the appropriate updates as soon as possible so that LCGMS may reflect accurate information.&#xA;&#xA;      NOTE: This report does not include analysis of Charter Schools.&#xA;&#xA;      If you have any questions or concerns, please contact the LCGMS team at OOD@schools.nyc.gov.&#xA;&#xA;      Thank you.&#xA;    " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="\\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE.xls" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step01 - File System Task (Replace New File)"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:DelayValidation="True"
+      DTS:Description="File System Task"
+      DTS:DTSID="{A4F8D1EA-99AF-45B6-8F4E-1F56A47C2448}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step01 - File System Task (Replace New File)"
+      DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SourceFile"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::LCGMS_RPT_BFSC_District_Issues_in_DOE_DestinationFile"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file"
+      DTS:DTSID="{B1DAD317-F12B-4063-BCB4-F555E2FC4C26}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file: " +   @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SourceFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file: \\ES11VDMDWSQL01\ETL_Scripts\BATCHPROCESSING\LCGMS\FILES\LCGMS_BFSC_Admin_Data_Issue_Report\LCGMS_RPT_BFSC_District_Issues_in_DOE_Template.xls"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step02 - Execute SQL Task (Execute SP To Extract Data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{02C11CB9-2127-4CF7-A4F3-180E7107A5F1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step02 - Execute SQL Task (Execute SP To Extract Data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4AAE67AC-E6D4-48C0-A235-CB2981F0CFA4}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Exec [Supertable].[dbo].[usp_Supertbl_BFSC_Admin_District_Issues_Report]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report"
+      DTS:DTSID="{C15D4DCC-4DDB-479D-AED4-3FE4762DEB45}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report: " +  @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report: ES11vDSINFSQL01"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{149B5370-94A8-4C3A-B8FF-C8223A1EDCB6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step03 - Data Flow Task (No BFSC Leader Assigned)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Code"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[Code_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Code_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[First_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="First_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[Last_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Last_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[Display_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Display_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input].Columns[Locations_Counter]"
+                      cachedDataType="i4"
+                      cachedName="Locations_Counter"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code_Name]"
+                      name="Copy of Code_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of First_Name]"
+                      name="Copy of First_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Last_Name]"
+                      name="Copy of Last_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Display_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Display_Name]"
+                      name="Copy of Display_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]"
+                      name="Copy of Locations_Counter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'No BFSC Leader Assigned$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Code]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of First_Name"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director First Name]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of First_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Last_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Last_Name"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director Last Name]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Last_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Display_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Display_Name"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director Display Name]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Display_Name]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Locations_Counter]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Locations_Counter"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Locations Under BFSC]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Locations_Counter]" />
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Code_Name"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Name]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code_Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="BFSC Code" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="BFSC Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director First Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="BFSC Director First Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director Last Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="BFSC Director Last Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[BFSC Director Display Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="BFSC Director Display Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Locations Under BFSC]"
+                      dataType="wstr"
+                      length="255"
+                      name="Locations Under BFSC" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LCGMS_RPT_BFSC_District_Issues_Table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
+Code, 
+Code_Name, 
+First_Name, 
+Last_Name, 
+Display_Name, 
+Locations_Counter
+FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table
+WHERE Sheet = 'A'
+ORDER By Code, Last_Name;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">$Package::LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryA</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+                  connectionManagerRefId="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Name]"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]"
+                      name="Code_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Last_Name]"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Display_Name]"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]"
+                      name="Display_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locations_Counter]"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]"
+                      name="Locations_Counter"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Code_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Display_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locations_Counter]"
+                      dataType="i4"
+                      name="Locations_Counter" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Name]"
+                      name="Code_Name" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Display_Name]"
+                      name="Display_Name" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locations_Counter]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locations_Counter]"
+                      name="Locations_Counter" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of Code]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of Code_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Code_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of First_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of First_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of Last_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Last_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Last_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of Display_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Display_Name"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Display_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input].Columns[Copy of Locations_Counter]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Locations_Counter"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code_Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Code_Name]"
+                      name="Copy of Code_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of First_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of First_Name]"
+                      name="Copy of First_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of First_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Last_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Last_Name]"
+                      name="Copy of Last_Name"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Last_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Display_Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Display_Name]"
+                      name="Copy of Display_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Display_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Locations_Counter]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output].Columns[Copy of Locations_Counter]"
+                      name="Copy of Locations_Counter">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[Data Conversion Output]"
+              endId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[OLE DB Source Output]"
+              endId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[Sort Output]"
+              endId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]"
+              name="Sort Output"
+              startId="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:DTSID="{F66C42BE-82A6-4469-8019-C2F24D769F83}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table: " + @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table: ES11vDSINFSQL01"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{10CA55C8-AEA8-494D-91E7-53E7F9DFA890}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step04 - Data Flow Task (No Admin Leader Assigned)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Code"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[Code_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Code_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[First_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="First_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[Last_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Last_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[Display_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Display_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input].Columns[Locations_Counter]"
+                      cachedDataType="i4"
+                      cachedName="Locations_Counter"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code_Name]"
+                      name="Copy of Code_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of First_Name]"
+                      name="Copy of First_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Last_Name]"
+                      name="Copy of Last_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Display_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Display_Name]"
+                      name="Copy of Display_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]"
+                      name="Copy of Locations_Counter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'No Admin Leader Assigned$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Admin/HS Code]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Code_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Code_Name"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Admin/HS Name]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of First_Name"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent First Name]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of First_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Last_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Last_Name"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent Last Name]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Last_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Display_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Display_Name"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent Display Name]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Display_Name]" />
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Locations_Counter]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Locations_Counter"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Locations Under District]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Locations_Counter]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Admin/HS Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Admin/HS Code" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Admin/HS Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Admin/HS Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent First Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Superintendent First Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent Last Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Superintendent Last Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Superintendent Display Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Superintendent Display Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Locations Under District]"
+                      dataType="wstr"
+                      length="255"
+                      name="Locations Under District" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F7]"
+                      dataType="wstr"
+                      length="255"
+                      name="F7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LCGMS_RPT_BFSC_District_Issues_Table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT
+Code, 
+Code_Name, 
+First_Name, 
+Last_Name, 
+Display_Name, 
+Locations_Counter
+FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table
+WHERE Sheet = 'B'
+ORDER By Code, Last_Name</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::LCGMS_RPT_BFSC_District_Issues_in_DOE_varSQLExtractQueryB</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+                  connectionManagerRefId="Package.ConnectionManagers[ES11VdSINFSQL01.Supertable.lcgmsappuser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Name]"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code_Name]"
+                      name="Code_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Last_Name]"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Display_Name]"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Display_Name]"
+                      name="Display_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locations_Counter]"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locations_Counter]"
+                      name="Locations_Counter"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Code_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Display_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locations_Counter]"
+                      dataType="i4"
+                      name="Locations_Counter" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code_Name]"
+                      name="Code_Name" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Last_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Display_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Display_Name]"
+                      name="Display_Name" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locations_Counter]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locations_Counter]"
+                      name="Locations_Counter" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts data."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of Code]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of Code_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Code_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of First_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of First_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of Last_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Last_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Last_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of Display_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of Display_Name"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Display_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input].Columns[Copy of Locations_Counter]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Locations_Counter"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code_Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Code_Name]"
+                      name="Copy of Code_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Code_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of First_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of First_Name]"
+                      name="Copy of First_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of First_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Last_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Last_Name]"
+                      name="Copy of Last_Name"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Last_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Display_Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Display_Name]"
+                      name="Copy of Display_Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Display_Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Locations_Counter]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output].Columns[Copy of Locations_Counter]"
+                      name="Copy of Locations_Counter">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Locations_Counter]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[Data Conversion Output]"
+              endId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[OLE DB Source Output]"
+              endId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[Sort Output]"
+              endId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination.Inputs[Excel Destination Input]"
+              name="Sort Output"
+              startId="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:DTSID="{2CF0BDA8-63B1-4600-8ECF-A1A62F4B5623}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table: " +  @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table: ES11vDSINFSQL01"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step05 - Execute SQL Task (Getdate)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Step05 - Execute SQL Task - Getdate()"
+      DTS:DTSID="{f1f1fe0a-0562-4b46-9fb0-e60e4654fdb8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="10"
+      DTS:ObjectName="Step05 - Execute SQL Task (Getdate)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4AAE67AC-E6D4-48C0-A235-CB2981F0CFA4}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT getdate() AS [User::LCGMS_RPT_BFSC_District_Issues_in_DOE_Today]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LCGMS_RPT_BFSC_District_Issues_in_DOE_Today" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step05 File system task - Problem getting Getdate()"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step05 File system task - Problem getting Getdate()"
+      DTS:DTSID="{89df609c-f66c-4759-9201-11bdde6cff77}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step05 File system task - Problem getting Getdate()"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step05 File system task - Problem getting Getdate() from server: " +  @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step05 File system task - Problem getting Getdate() from server: ES11vDSINFSQL01"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step06 - Execute SQL Task (Get Counts)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8061EC3C-C253-49D9-945B-D948D0AD480E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="10"
+      DTS:ObjectName="Step06 - Execute SQL Task (Get Counts)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4AAE67AC-E6D4-48C0-A235-CB2981F0CFA4}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) AS  [User::LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows] FROM Supertable.dbo.LCGMS_RPT_BFSC_District_Issues_Table;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step06 File system task - Problem getting Count from SQL Table"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step06 File system task - Problem getting Count from SQL Table"
+      DTS:DTSID="{714E48D7-7671-41FA-B7B0-C3B54D8C5250}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step06 File system task - Problem getting Count from SQL Table"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="6">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step06 File system task - Problem getting Count from SQL Table from SQL server: " +  @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE1@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:Subject="Step06 File system task - Problem getting Count from SQL Table from SQL server: ES11vDSINFSQL01"
+          SendMailTask:Priority="High" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Step07 - Send Mail Task - No Data Found"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Step07 - Send Mail Task - No Data Found"
+      DTS:DTSID="{71517DD5-003A-4BAF-B8AF-294594A0B23A}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Step07 - Send Mail Task - No Data Found"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="7">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::Step07SendMailTaskNoDataFound_CCLine]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Step07 - Send Mail Task: No Data Found for BFSC &amp; Admin District Issues Report (Server: " + @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_SqlDatabaseServer] + " as of " +  (DT_WSTR,30)( @[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_Today]) + ")"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::Step07SendMailTaskNoDataFound_ToLine]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{C0834100-7BFB-4036-9BF8-03DB8D15E930}"
+          SendMailTask:From="LCGMS_RPT_BFSC_District_Issues_in_DOE@schools.nyc.gov"
+          SendMailTask:To="tsyed@schools.nyc.gov"
+          SendMailTask:CC="tahirsyed06@gmail.com"
+          SendMailTask:Subject="Step07 - Send Mail Task: No Data Found for BFSC &amp; Admin District Issues Report (Server: ES11vDSINFSQL01 as of 12/10/2015 11:48:08 AM)"
+          SendMailTask:MessageSource="&#xA;&#xA;      *** Details of the BFSC/SST Data Issues Report thru LCGMS Database Specification ***&#xA;&#xA;&#xA;      There are TWO reports produced in their own sheet in one Excel file.&#xA;&#xA;      The Extract criteria: All the Active DOE Locations for the Current Fiscal Year.&#xA;&#xA;      Report Name/File:&#x9;LCGMS_RPT_BFSC_District_Issues_in_DOE.xls&#xA;&#xA;      The reports composed of TWO sheets are as follow:&#xA;&#xA;      1. Borough Field Support Centers (BFSC)&#xA;&#xA;      2. School Support Teams (SST) / Administrative Districts [Supertengents]&#xA;&#xA;      This SSIS package [LCGMS_RPT_BFSC_District_Issues_in_DOE] is scheduled to generate reports on a daily basis;&#xA;&#xA;      It provides the data discrepancy information in all the sheets with the same schema as follow:&#xA;      Sheet: &#x9;‘No BFSC Leader Assigned’ &#x9;OR &#x9;‘No Admin Leader Assigned’&#xA;      1. BFSC Code &#x9;&#x9;OR &#x9;Admin/HS Code&#xA;      2. BFSC Name &#x9;&#x9;OR &#x9;Admin/HS Name&#xA;      3. BFSC Director First Name &#x9;OR &#x9;Superintendent First Name&#xA;      4. BFSC Director Last Name &#x9;OR &#x9;Superintendent Last Name&#xA;      5. BFSC Director Display Name &#x9;OR &#x9;Superintendent Display Name&#xA;      6. Locations Under BFSC &#x9;OR &#x9;Locations Under District&#xA;&#xA;      If you have any concern or question, please contact LCGMS team.&#xA;&#xA;      Please don't reply back on LCGMS_BFSC_Admin_Data_Issue_Report@schools.nyc.gov email address.&#xA;&#xA;      Thanks&#xA;    " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2297280-B1F5-4301-9665-A95888FB2C77}"
+      DTS:From="Package\Step01 - File System Task (Replace New File)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Step02 - Execute SQL Task (Execute SP To Extract Data)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A92ECC0-F8EA-4054-8CC9-219A7AD4F887}"
+      DTS:From="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E0B2088-A6B4-4217-9904-6D139365E00F}"
+      DTS:From="Package\Step04 - Data Flow Task (No Admin Leader Assigned)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{8CA61E3A-9172-45F6-B7D2-D4C7D9865B07}"
+      DTS:From="Package\Step02 - Execute SQL Task (Execute SP To Extract Data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{2B9421E1-FD0A-48E0-836C-FB4B3839C04B}"
+      DTS:From="Package\Step06 - Execute SQL Task (Get Counts)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Step06 File system task - Problem getting Count from SQL Table"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{c1f3074e-f66d-4d92-b5c5-db3558cfbe33}"
+      DTS:From="Package\Step05 - Execute SQL Task (Getdate)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12 1"
+      DTS:To="Package\Step05 File system task - Problem getting Getdate()"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB6049B2-32BB-4BC9-9C67-214A7B156ABE}"
+      DTS:From="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Step04 - Data Flow Task (No Admin Leader Assigned)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F250C97F-65F5-4446-A06B-E385612AB668}"
+      DTS:From="Package\Step04 - Data Flow Task (No Admin Leader Assigned)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Step05 - Execute SQL Task (Getdate)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B1B91063-C5D6-48DD-93FA-FFB16123701C}"
+      DTS:From="Package\Step05 - Execute SQL Task (Getdate)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Step06 - Execute SQL Task (Get Counts)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{7F30E956-8565-4C50-951D-8F560359ADA2}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows] == 0"
+      DTS:From="Package\Step06 - Execute SQL Task (Get Counts)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Step07 - Send Mail Task - No Data Found" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC3D9638-7035-4596-A45C-8C5DA41BB76B}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::LCGMS_RPT_BFSC_District_Issues_in_DOE_TotalRows] &gt; 0"
+      DTS:From="Package\Step06 - Execute SQL Task (Get Counts)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Final Step - Send Mail Task - BFSC &amp; Admin District Issues Report" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{41E6FBC7-8489-4BC1-AD17-5676DDDA1B68}"
+      DTS:From="Package\Step01 - File System Task (Replace New File)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C88508C-CE18-4586-8563-41BF605D1878}"
+      DTS:From="Package\Step02 - Execute SQL Task (Execute SP To Extract Data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Final Step - Send Mail Task - BFSC &amp; Admin District Issues Report"
+          TopLeft="417.424528301887,612.27358490566" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step01 - File System Task (Replace New File)"
+          TopLeft="21.5,83.5" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step01 File system task - Problem copy LCGMS_RPT_BFSC_District_Issues_in_DOE file"
+          TopLeft="417.424528301887,83.5" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step02 - Execute SQL Task (Execute SP To Extract Data)"
+          TopLeft="21.5,172.12893081761" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step02 File system task - Problem Executing  Supertable_dbo_usp_Supertbl_BFSC_Admin_District_Issues_Report"
+          TopLeft="417.424528301887,172.915094339623" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)"
+          TopLeft="21.5,260.75786163522" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step03 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+          TopLeft="417.424528301887,264.27358490566" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned)"
+          TopLeft="21.5,349.38679245283" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step04 File system task - Problem Extracting from Supertable_dbo_LCGMS_RPT_BFSC_District_Issues_Table"
+          TopLeft="417.424528301887,350.650943396226" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step05 - Execute SQL Task (Getdate)"
+          TopLeft="21.5,434.01572327044" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step05 File system task - Problem getting Getdate()"
+          TopLeft="417.424528301887,433.169811320755" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step06 - Execute SQL Task (Get Counts)"
+          TopLeft="21.5,522.64465408805" />
+        <NodeLayout
+          Size="342,54"
+          Id="Package\Step06 File system task - Problem getting Count from SQL Table"
+          TopLeft="417.424528301887,530.38679245283" />
+        <NodeLayout
+          Size="349,54"
+          Id="Package\Step07 - Send Mail Task - No Data Found"
+          TopLeft="21.5,611.27358490566" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="196,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.62893081761"
+              Start="0,0"
+              End="0,27.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="370.5,289.51572327044">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="370.5,377.018867924528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="196,226.12893081761">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.62893081761"
+              Start="0,0"
+              End="0,27.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="370.5,553.51572327044">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12 1]"
+          TopLeft="370.5,460.592767295597">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="196,314.75786163522">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.62893081761"
+              Start="0,0"
+              End="0,27.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="196,403.38679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.62893081761"
+              Start="0,0"
+              End="0,23.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="196,488.01572327044">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.62893081761"
+              Start="0,0"
+              End="0,27.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="139.166666666667,576.64465408805">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.8333333333333,34.62893081761"
+              Start="0,0"
+              End="56.8333333333333,27.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.94639198929416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.94639198929416"
+                    Point2="0,13.9463919892942"
+                    Point3="4,13.9463919892942" />
+                  <mssgle:LineSegment
+                    End="52.8333333333333,13.9463919892942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.8333333333333,13.9463919892942"
+                    Point2="56.8333333333333,13.9463919892942"
+                    Point3="56.8333333333333,17.9463919892942" />
+                  <mssgle:LineSegment
+                    End="56.8333333333333,27.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.4166666666667,18.9463919892942,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="252.833333333333,576.64465408805">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="335.591194968554,35.62893081761"
+              Start="0,0"
+              End="335.591194968554,28.12893081761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3491301524431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3491301524431"
+                    Point2="0,14.3491301524431"
+                    Point3="4,14.3491301524431" />
+                  <mssgle:LineSegment
+                    End="331.591194968554,14.3491301524431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="331.591194968554,14.3491301524431"
+                    Point2="335.591194968554,14.3491301524431"
+                    Point3="335.591194968554,18.3491301524431" />
+                  <mssgle:LineSegment
+                    End="335.591194968554,28.12893081761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="159.795597484277,19.3491301524431,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="370.5,110.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="370.5,199.522012578617">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.924528301887,0"
+              Start="0,0"
+              End="39.424528301887,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.424528301887,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.4709164946935,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="*** Details of the BFSC &amp; SST Data Issues Report thru LCGMS Database Specification ***&#xA;&#xA;There are TWO reports produced in their own sheet in one Excel file.&#xA;&#xA;The Extract criteria: All the Active DOE Locations for the Current Fiscal Year.&#xA;&#xA;Report Name/File: LCGMS_RPT_BFSC_District_Issues_in_DOE.xls&#xA;&#xA;The reports composed of TWO sheets are as follow:&#xA;1. Borough Field Support Centers (BFSC)&#xA;2. School Support Teams (SST) &#xA;&#xA;This SSIS package [LCGMS_RPT_BFSC_District_Issues_in_DOE] is scheduled to generate reports on a daily basis;&#xA;It provides the data discrepancy information in all the sheets with the same schema as follow:&#xA;&#xA;Sheets:  A: No BFSC Leader Assigned       B: No Admin Leader Assigned&#xA;&#xA;Fields are as follow:&#xA;            1. BFSC Code   OR  Admin/HS Code&#xA;            2. BFSC Name   OR  Admin/HS Name&#xA;            3. BFSC Director First Name  OR  Superintendent First Name&#xA;            4. BFSC Director Last Name  OR  Superintendent Last Name&#xA;            5. BFSC Director Display Name  OR  Superintendent Display Name&#xA;            7. Locations Under BFSC  OR  Locations Under District&#xA;&#xA;If you have any concern or question, please contact LCGMS team.&#xA;&#xA;Please don't reply back on LCGMS_BFSC_Admin_Data_Issue_Report@schools.nyc.gov email address.&#xA;&#xA;Thanks,&#xA;&#xA;LCGMS Team&#xA;"
+          ParentId="Package"
+          Size="596,472"
+          Id="2a99fc87-4f7b-4057-9bfd-84b680b29c74"
+          TopLeft="781.61320754717,91.0849056603774">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FFFF00FF">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="LCGMS_RPT_BFSC_District_Issues_in_DOE"
+          ParentId="Package"
+          Size="373,46"
+          Id="212a3a96-8090-44f0-b214-1e21f14eab49"
+          TopLeft="649,17">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF0000FF">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Sort"
+          TopLeft="54,322.333333333333" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination"
+          TopLeft="54,463" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source"
+          TopLeft="54,41" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Data Conversion"
+          TopLeft="54,181.666666666667" />
+        <EdgeLayout
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[Sort Output]"
+          TopLeft="193.5,364.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,98.6666666666667"
+              Start="0,0"
+              End="0,91.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[OLE DB Source Output]"
+          TopLeft="193.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,98.6666666666667"
+              Start="0,0"
+              End="0,91.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step03 - Data Flow Task (No BFSC Leader Assigned).Paths[Data Conversion Output]"
+          TopLeft="193.5,223.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,98.6666666666667"
+              Start="0,0"
+              End="0,91.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Step03 - Data Flow Task (No BFSC Leader Assigned)\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Step04 - Data Flow Task (No Admin Leader Assigned)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="308,44"
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Sort 1"
+          TopLeft="5.5,242.5" />
+        <NodeLayout
+          Size="308,44"
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="308,44"
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination"
+          TopLeft="5.5,361" />
+        <NodeLayout
+          Size="308,44"
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Data Conversion 1"
+          TopLeft="5.5,124" />
+        <EdgeLayout
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[Sort Output]"
+          TopLeft="159.5,286.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,74.5"
+              Start="0,0"
+              End="0,67">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[OLE DB Source Output]"
+          TopLeft="159.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,74.5"
+              Start="0,0"
+              End="0,67">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Step04 - Data Flow Task (No Admin Leader Assigned).Paths[Data Conversion Output]"
+          TopLeft="159.5,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,74.5"
+              Start="0,0"
+              End="0,67">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Step04 - Data Flow Task (No Admin Leader Assigned)\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "LCGMS_RPT_BFSC_District_Issues_in_DOE", "LCGMS_RPT_BFSC_District_Issues_in_DOE.dtproj", "{39767690-9395-4381-8635-12E3DB17C003}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dvapp18:8080/tfs/diit
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LCGMS_RPT_BFSC_District_Issues_in_DOE.dtproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39767690-9395-4381-8635-12E3DB17C003}.Development|Default.ActiveCfg = Development
+		{39767690-9395-4381-8635-12E3DB17C003}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

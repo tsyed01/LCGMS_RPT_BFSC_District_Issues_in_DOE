@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "LCGMS_RPT_BFSC_District_Issues_in_DOE", "LCGMS_RPT_BFSC_District_Issues_in_DOE\LCGMS_RPT_BFSC_District_Issues_in_DOE.dtproj", "{EE5EB1E3-42EA-4640-A7F3-5E453C34AB2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE|Default = ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE|Default
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE5EB1E3-42EA-4640-A7F3-5E453C34AB2B}.ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE|Default.ActiveCfg = ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE
+		{EE5EB1E3-42EA-4640-A7F3-5E453C34AB2B}.ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE|Default.Build.0 = ConnectionManager_LCGMS_RPT_BFSC_District_Issues_in_DOE
+		{EE5EB1E3-42EA-4640-A7F3-5E453C34AB2B}.Development|Default.ActiveCfg = Development
+		{EE5EB1E3-42EA-4640-A7F3-5E453C34AB2B}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB1CBF9A-D8C6-481B-AA0A-27F3D0CD4468}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dvapp18:8080/tfs/diit
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LCGMS_RPT_BFSC_District_Issues_in_DOE\\LCGMS_RPT_BFSC_District_Issues_in_DOE.dtproj
+		SccProjectName1 = LCGMS_RPT_BFSC_District_Issues_in_DOE
+		SccLocalPath1 = LCGMS_RPT_BFSC_District_Issues_in_DOE
+	EndGlobalSection
+EndGlobal
